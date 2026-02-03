@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Dependency Injection</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .section { margin: 15px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        h3 { color: #333; margin-top: 0; }
+        input { padding: 5px; margin-right: 10px; }
+        button { padding: 5px 15px; cursor: pointer; }
+        ul { margin: 10px 0; }
+    </style>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="MainCtrl">
+    <h1>{{title}}</h1>
+
+    <!-- VALUE & CONSTANT -->
+    <div class="section">
+        <h3>1. VALUE & CONSTANT</h3>
+        <p><strong>App Name (value):</strong> {{title}}</p>
+        <p><strong>API URL (constant):</strong> {{apiUrl}}</p>
+    </div>
+
+    <!-- SERVICE -->
+    <div class="section">
+        <h3>2. SERVICE (UserService)</h3>
+        <p><strong>Users:</strong></p>
+        <ul>
+            <li ng-repeat="user in users">{{user}}</li>
+        </ul>
+        <input type="text" ng-model="newUser" placeholder="Enter name">
+        <button ng-click="addUser()">Add User</button>
+    </div>
+
+    <!-- FACTORY -->
+    <div class="section">
+        <h3>3. FACTORY (MathFactory)</h3>
+        <p><strong>Numbers:</strong> {{num1}} and {{num2}}</p>
+        <p><strong>Sum:</strong> {{sum}}</p>
+        <p><strong>Product:</strong> {{product}}</p>
+    </div>
+
+    <!-- PROVIDER -->
+    <div class="section">
+        <h3>4. PROVIDER (Greeting)</h3>
+        <p>{{greetingMsg}}</p>
+    </div>
+
+    <!-- Built-in $timeout -->
+    <div class="section">
+        <h3>5. Built-in Service ($timeout)</h3>
+        <p>{{delayedMsg}}</p>
+    </div>
+</div>
+
+<script src="app1.js"></script>
+
+</body>
+</html>
